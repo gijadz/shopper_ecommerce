@@ -2,7 +2,7 @@
 
 * **Titolo Progetto:** Shopper!
 * **Studente:** Giada Schicchi (Matricola: 7137452)
-* **Data di fine progetto:** 02/06/2026
+* **Data di fine progetto:** 12/06/2026
 * **Tipologia di Progetto:** Full-Stack Web Application
 * **Framework Utilizzato:** Django 6.0.6
 
@@ -40,12 +40,11 @@ Il sistema prevede una separazione dei permessi basata sul tipo di utente loggat
 
 * **Backend:** Python 3.14, Django Framework 6.0.6 (MVT Architecture).
 * **Database:** SQLite (predefinito in Django).
-* **Frontend:** HTML5, CSS3 (Palette Rosa Pastello e Shopper Theme), Bootstrap 5.3, FontAwesome 6.0 (per icone).
+* **Frontend:** HTML5, CSS3 (palette rosa pastello e tema Shopper), Bootstrap 5.3, FontAwesome 6.0 (per icone).
 
 ---
 
 ## Istruzioni per l'Installazione in Locale
-
 Seguire questi passaggi per avviare il progetto sul proprio computer locale:
 
 1.  **Clonare la repository o estrarre la cartella del progetto e posizionarsi al suo interno:**
@@ -85,13 +84,17 @@ Seguire questi passaggi per avviare il progetto sul proprio computer locale:
 Il file del database incluso nel progetto si chiama **`db.sqlite3`**. 
 Si conferma che il database contiene già dei dati demo pre-caricati (categorie, prodotti con scorte diversificate, utenti e ordini passati) per permettere una valutazione immediata di tutte le funzionalità.
 
+---
+
 ## Online Deployment Link
 https://giadaschicchi.pythonanywhere.com/
+
+## GitHub Repository Link
+https://github.com/gijadz/shopper_ecommerce.git
 
 ---
 
 ## Credenziali Demo
-
 Sono stati creati tre tipologie di profili nel database:
 
 ### 1. Superuser (Django Admin)
@@ -113,7 +116,6 @@ Sono stati creati tre tipologie di profili nel database:
 ---
 
 ## Test personalmente eseguiti
-
 Per verificare il corretto funzionamento di tutte le componenti del progetto, ho eseguito con successo i seguenti test:
 
 1.  **1. Navigazione anonima:** Provo ad aggiungere un prodotto al carrello e il sistema mi reindirizza automaticamente alla pagina di Login per sicurezza.
