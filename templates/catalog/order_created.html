@@ -1,0 +1,57 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Ordine Ricevuto! - Shopper!{% endblock %}
+
+{% block content %}
+<style>
+    .success-card {
+        background: white;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(251, 111, 146, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .success-icon {
+        font-size: 4rem;
+        color: var(--shopper-pink-dark);
+        background-color: var(--shopper-bg);
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px auto;
+        border: 4px solid var(--shopper-pink-light);
+    }
+
+    /* Estendiamo il bottone shopper del file base aggiungendo solo il padding extra */
+    .btn-success-home {
+        padding: 12px 30px;
+    }
+</style>
+
+<div class="d-flex justify-content-center my-5">
+    <div class="success-card">
+        <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+        </div>
+        
+        <h1 class="fw-bold mb-2" style="font-size: 1.8rem;">Grazie per il tuo ordine!</h1>
+        <p class="text-muted mb-4">L'acquisto è andato a buon fine. Il tuo ordine è stato registrato con il numero identificativo unico <strong>#{{ order.id }}</strong>.</p>
+
+        <div class="p-3 mb-4 rounded-3" style="background-color: var(--shopper-bg);">
+            <span class="small text-muted d-block text-uppercase fw-bold tracking-wider">Totale addebitato</span>
+            <span class="fs-3 fw-bold" style="color: #d9406b;">{{ order.get_total_cost }} €</span>
+        </div>
+
+        <a href="{% url 'product_list' %}" class="btn btn-shopper btn-success-home shadow-sm">
+            <i class="fa-solid fa-house me-2"></i> Torna alla Home dello Store
+        </a>
+    </div>
+</div>
+{% endblock %}

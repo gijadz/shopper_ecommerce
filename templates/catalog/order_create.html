@@ -1,0 +1,105 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Checkout - Shopper!{% endblock %}
+
+{% block content %}
+<style>
+    .checkout-card {
+        background: white;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(251, 111, 146, 0.08);
+        padding: 30px;
+    }
+
+    .form-control-shopper {
+        border: 2px solid var(--shopper-pink-light);
+        border-radius: 12px;
+        padding: 10px 15px;
+        color: var(--shopper-text);
+    }
+    .form-control-shopper:focus {
+        border-color: var(--shopper-pink-dark);
+        box-shadow: 0 0 0 3px rgba(251, 111, 146, 0.15);
+    }
+
+    .price-box {
+        background-color: var(--shopper-bg);
+        border-radius: 15px;
+        padding: 15px;
+    }
+</style>
+
+<div class="container">
+    <h2 class="mb-4 fw-bold">
+        <i class="fa-solid fa-credit-card me-2" style="color: var(--shopper-pink-dark);"></i>
+        Completa il tuo Ordine
+    </h2>
+
+    <div class="row">
+        <div class="col-lg-7 mb-4">
+            <div class="checkout-card">
+                <h4 class="fw-bold mb-4 fs-5"><i class="fa-solid fa-truck text-muted me-2"></i>Dati di Spedizione</h4>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Nome</label>
+                            <input type="text" name="first_name" class="form-control form-control-shopper" required placeholder="Es. Mario">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Cognome</label>
+                            <input type="text" name="last_name" class="form-control form-control-shopper" required placeholder="Es. Rossi">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Email</label>
+                            <input type="email" name="email" class="form-control form-control-shopper" required placeholder="nome@dominio.com">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Indirizzo di Consegna</label>
+                            <input type="text" name="address" class="form-control form-control-shopper" required placeholder="Via/Piazza, Numero Civico">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Città</label>
+                            <input type="text" name="city" class="form-control form-control-shopper" required placeholder="Es. Firenze">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">CAP</label>
+                            <input type="text" name="postal_code" class="form-control form-control-shopper" required placeholder="Es. 50100">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-shopper w-100 py-3 mt-4 shadow-sm fs-5">
+                        Conferma e Invia Ordine <i class="fa-solid fa-heart ms-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="checkout-card">
+                <h4 class="fw-bold mb-3 fs-5">Articoli acquistati</h4>
+                <hr class="opacity-50" style="color: var(--shopper-pink-main)">
+
+                <div class="mb-4">
+                    {% for item in cart.items.all %}
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <span class="fw-bold" style="color: var(--shopper-text);">{{ item.product.name }}</span>
+                                <small class="text-muted d-block">Quantità: {{ item.quantity }}</small>
+                            </div>
+                            <span class="fw-bold">{{ item.get_cost }} €</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="price-box d-flex justify-content-between align-items-center">
+                    <span class="fw-bold text-uppercase small tracking-wider">Totale da pagare:</span>
+                    <span class="fs-4 fw-bold" style="color: #d9406b;">{{ cart.get_total_price }} €</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

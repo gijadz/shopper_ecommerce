@@ -1,0 +1,66 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Elimina Prodotto - Shopper!{% endblock %}
+
+{% block content %}
+<style>
+    .delete-card {
+        background: white;
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(251, 111, 146, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .warning-icon {
+        font-size: 3.5rem;
+        color: #d9406b;
+        background-color: var(--shopper-pink-light);
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px auto;
+    }
+
+    .btn-shopper-danger {
+        background-color: #d9406b;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        padding: 10px 25px;
+        transition: all 0.2s;
+    }
+    .btn-shopper-danger:hover {
+        background-color: #b52a51;
+        color: white;
+    }
+</style>
+
+<div class="d-flex justify-content-center my-5">
+    <div class="delete-card">
+        <div class="warning-icon">
+            <i class="fa-solid fa-trash-can"></i>
+        </div>
+        
+        <h2 class="fw-bold mb-3 fs-4">Sei sicuro?</h2>
+        <p class="text-muted mb-4">Stai per eliminare definitivamente il prodotto <strong>"{{ object.name }}"</strong> dal catalogo. Questa azione non può essere annullata.</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'product_list' %}" class="btn btn-outline-secondary rounded-pill px-4">Annulla</a>
+                <button type="submit" class="btn btn-shopper-danger shadow-sm">
+                    Sì, elimina prodotto
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
