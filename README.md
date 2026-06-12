@@ -86,7 +86,7 @@ Il file del database incluso nel progetto si chiama **`db.sqlite3`**.
 Si conferma che il database contiene già dei dati demo pre-caricati (categorie, prodotti con scorte diversificate, utenti e ordini passati) per permettere una valutazione immediata di tutte le funzionalità.
 
 ## Online Deployment Link
-* [Se hai caricato il sito online, incolla il link qui. Altrimenti scrivi: "Progetto sviluppato e testato per l'esecuzione in locale."]
+https://giadaschicchi.pythonanywhere.com/
 
 ---
 
