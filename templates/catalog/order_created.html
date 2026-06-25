@@ -1,8 +1,10 @@
+<!--"popup" di conferma ordine/ordine ricevuto dallo store manager che appare nella manager_order_list.html-->
 {% extends 'catalog/base.html' %}
 
 {% block title %}Ordine Ricevuto! - Shopper!{% endblock %}
 
 {% block content %}
+<!--css aggiuntivo rispetto al base.html-->
 <style>
     .success-card {
         background: white;
@@ -28,8 +30,6 @@
         margin: 0 auto 20px auto;
         border: 4px solid var(--shopper-pink-light);
     }
-
-    /* Estendiamo il bottone shopper del file base aggiungendo solo il padding extra */
     .btn-success-home {
         padding: 12px 30px;
     }
