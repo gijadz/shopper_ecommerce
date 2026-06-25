@@ -1,8 +1,10 @@
+<!--form di login-->
 {% extends 'catalog/base.html' %}
 
 {% block title %}Accedi a Shopper!{% endblock %}
 
 {% block content %}
+<!--css aggiuntivo, unicamente per il form-->
 <style>
     .login-card {
         background: white;
@@ -15,7 +17,6 @@
         transition: transform 0.2s;
     }
 
-    /* Icona del "brand" circolare */
     .login-logo-circle {
         background-color: var(--shopper-bg);
         color: var(--shopper-pink-dark);
@@ -45,7 +46,6 @@
         margin-bottom: 30px;
     }
 
-    /* Input personalizzati per il login */
     .form-control-shopper {
         border: 2px solid var(--shopper-pink-light);
         border-radius: 12px;
@@ -67,7 +67,6 @@
         color: var(--shopper-text);
     }
 
-    /* Pulsante Accedi */
     .btn-shopper-login {
         background-color: var(--shopper-pink-dark);
         color: white;
@@ -86,7 +85,6 @@
         box-shadow: 0 5px 15px rgba(251, 111, 146, 0.3);
     }
 
-    /* Link per tornare indietro */
     .back-link {
         color: var(--shopper-pink-dark);
         text-decoration: none;
@@ -99,7 +97,6 @@
         text-decoration: underline;
     }
 
-    /* Alert errore credenziali */
     .alert-shopper {
         background-color: #fff0f2;
         border: 1px solid #ffccd3;
